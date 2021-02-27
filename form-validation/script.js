@@ -1,34 +1,36 @@
-const usernameEl = document.querySelector('#username');
+//Selecting each and every required input selctor of any of the DOM selction method */
+const usernameEl = document.querySelector('#username');                 /* document.getElementById('username'); */
 const emailEl = document.querySelector('#email');
 const passwordEl = document.querySelector('#password');
 const confirmPasswordEl = document.querySelector('#confirm-password');
 
 const form = document.querySelector('#signup');
 
-
+//username validation
 const checkUsername = () => {
-
+    // for returning a useful boolean value to validate the input event 
     let valid = false;
-
+    //proper validation by defining the boundaries 
     const min = 3,
         max = 25;
-
+    //value of the username parameter
     const username = usernameEl.value.trim();
 
     if (!isRequired(username)) {
-        showError(usernameEl, 'Username cannot be blank.');
+        showError(usernameEl, "Username cannot be blank.");             //function call to showerror
     } else if (!isBetween(username.length, min, max)) {
-        showError(usernameEl, `Username must be between ${min} and ${max} characters.`)
+        showError(usernameEl, "Username must be between ${min} and ${max} characters.")
     } else {
-        showSuccess(usernameEl);
+        showSuccess(usernameEl);    
         valid = true;
     }
     return valid;
 };
 
-
+//email validation with defined utility functions
 const checkEmail = () => {
     let valid = false;
+    //value of email input type
     const email = emailEl.value.trim();
     if (!isRequired(email)) {
         showError(emailEl, 'Email cannot be blank.');
@@ -40,11 +42,11 @@ const checkEmail = () => {
     }
     return valid;
 };
-
+//password validation
 const checkPassword = () => {
     let valid = false;
 
-
+    //password input type value from globally declared query selector variable values
     const password = passwordEl.value.trim();
 
     if (!isRequired(password)) {
@@ -58,7 +60,7 @@ const checkPassword = () => {
 
     return valid;
 };
-
+//confirm password validation
 const checkConfirmPassword = () => {
     let valid = false;
     // check confirm password
@@ -77,20 +79,24 @@ const checkConfirmPassword = () => {
     return valid;
 };
 
+//utility fuction with a R.E to check upon the email pattern 
 const isEmailValid = (email) => {
+    //pattern definition for mail 
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 };
-
+//password check function
 const isPasswordSecure = (password) => {
+    //password pattern definition
     const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     return re.test(password);
 };
-
+//checking for the occurences of a blank character
 const isRequired = value => value === '' ? false : true;
+//checks for defined boundaries
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
-
+//error display function
 const showError = (input, message) => {
     // get the form-field element
     const formField = input.parentElement;
@@ -102,7 +108,7 @@ const showError = (input, message) => {
     const error = formField.querySelector('small');
     error.textContent = message;
 };
-
+//success error message function
 const showSuccess = (input) => {
     // get the form-field element
     const formField = input.parentElement;
@@ -111,12 +117,12 @@ const showSuccess = (input) => {
     formField.classList.remove('error');
     formField.classList.add('success');
 
-    // hide the error message
+    // hide the error message with an empty screen
     const error = formField.querySelector('small');
     error.textContent = '';
 }
 
-
+//form submission trigerring evet listener 
 form.addEventListener('submit', function (e) {
     // prevent the form from submitting
     e.preventDefault();
@@ -134,6 +140,6 @@ form.addEventListener('submit', function (e) {
 
     // submit to the server if the form is valid
     if (isFormValid) {
-
+        console.log("SUCCESFULLY SUBMITTED ");
     }
 });
