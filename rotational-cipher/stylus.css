@@ -1,0 +1,32 @@
+*
+{
+	margin:auto;
+	padding:0;
+	box-sizing: border-box;
+} 
+.container {
+	height:80vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width:25%;
+}
+.header {
+	margin-top: 200px;
+	flex:1;
+}
+.rot-type {
+	margin-top:0px;
+	flex:1;
+}
+
+input{
+	flex:1;
+	margin-top:30px;
+}
+button
+{
+	margin-top:5px;
+	flex:1;
+	margin-left:-120px;
+}
