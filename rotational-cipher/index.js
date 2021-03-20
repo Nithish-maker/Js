@@ -1,9 +1,10 @@
 //program for rot-13 and rot-47 cipher
-//global selector for button 
+
 let btn = document.getElementById('button');
 //for rot-47 cipher
 function rot47(str) {
-	return (
+	return 
+	(
 		str.split("")
 		//iterating through the array
 		.map.call(str,function(ch) {
@@ -23,7 +24,8 @@ function rot47(str) {
 //for rot-13 cipher
 function rot13(str) {
   // Split str into a character array
-  return (
+  return 
+  (
     str.split("")
       // Iterate over each character in the array
       .map.call(str, function(ch) {
