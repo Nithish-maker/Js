@@ -1,5 +1,5 @@
 //program for rot-13 and rot-47 cipher
-
+//global DOM selector for button
 let btn = document.getElementById('button');
 //for rot-47 cipher
 function rot47(str) {
