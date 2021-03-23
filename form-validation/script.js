@@ -94,7 +94,7 @@ const isPasswordSecure = (password) => {
 //checking for the occurences of a blank character
 const isRequired = value => value === '' ? true : false;
 //checks for defined boundaries
-const isBetween = (length, min, max) => length > min || length < max ? true : false;
+const isBetween = (length, min, max) => length < min || length > max ? true : false;
 
 //error display function
 const showError = (input, message) => {
