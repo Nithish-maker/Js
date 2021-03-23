@@ -112,7 +112,7 @@ console.log(maximumChar(str));
 
 let arr = [1,2,3,4,5];
 const reverse = array => {
-	for(let i = 0; i < array.length / 2; i++) {
+	for(let i = 0; i < Math.floor(array.length / 2); i++) {
 		let temp = array[i];
 		array[i] = array[array.length - 1 - i];
 		array[array.length - 1 - i] = temp;
@@ -194,3 +194,125 @@ const mode = num => {
   return modes;
 }
 console.log(mode(arr));
+
+//sum of a range of a num
+
+function getArr(start,end, step) {
+  let arr = [];
+  if(step > 0 && start < end) {
+    for(let i = start; i <= end; i = i + step) {
+      arr.push(i);
+    }
+  }
+  else if(step < 0 && start > end){
+    for(let i = start; i >= end; i = i + step) {
+      arr.push(i);
+    }
+  }
+  else {
+  	return 0;
+  }
+  return arr;
+}
+function sum(array) {
+	let total = 0;
+	for(let num of array) {
+		total+=array[num];
+	}
+	return total;
+}
+console.log(sum(getArr(10,2,-2)));
+
+//two sum iterative method 
+
+let arr = [1, 2, 2, 3, 4];
+let res = [];
+const twoSum = (array,number) => {
+	for(let i = 0; i < array.length; i++) {
+		for(let j= i + 1; j < array.length; j++) {
+			if(arr[i] + arr[j] === number) {
+				res.push([arr[i],arr[j]]);	
+			}
+		}
+	}
+	return res;
+}
+console.log(twoSum(arr,4));
+
+//twoSum efficient method
+
+//checking duplicacy of elements in the array
+//converting array to a set and comparing lengths of the set && array
+let arr = [1,2,3,4,5];
+const check = (arr) => {
+  return new Set(arr).size == arr.length;
+}
+const remove = (arr) => {
+  return new Set(arr);
+}
+//calculating the twoSum
+const twoSum = (array,sum) => {
+  if(check(arr)) {
+    let obj = {};
+    for(let i = 0; i < array.length; i++) {
+      let value = array[i];
+      let diff = sum - value;
+      if(!obj.hasOwnProperty(diff)) {
+        obj[value] = i;
+      }
+      else {
+        return [obj[diff],i];
+      }
+    }
+  }
+  else {
+     return twoSum(remove(arr));
+  }
+} 
+console.log(twoSum(arr,6));
+
+//age calculator  
+const age = (c_date,c_month,c_year,b_date,b_month,b_year) => {
+  let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
+  if(b_date > c_date) {
+    c_date = c_date + month[b_month - 1];
+    c_month = c_month - 1;
+  }
+  if(b_month > c_month) {
+    c_year = c_year - 1;
+    c_month = c_month + 12;
+  }
+  let diffDate = c_date - b_date;
+  let diffMonth = c_month - b_month;
+  let diffYear = c_year - b_year;
+  console.log(`Your ${diffYear} years ${diffMonth} months and ${diffDate} days old`);
+}
+age(23,3,2021,20,1,2000);
+
+//prime numbers uptill n using seive of eratosthenes
+
+let num = parseInt(prompt("Enter a number"));
+let arr = new Array(num + 1);
+let primes = new Array();
+const prime = (num) => {
+  for (let i = 2; i <= num; i++) {
+    arr[0] = false; 
+    arr[1] = false;
+    arr[i] = true;
+  }
+  for(let i = 2; i * i <= num; i++) {
+    if(arr[i]) {
+      for(let j = i * 2; j <= num; j+=i) {
+        arr[j] = false; 
+      }
+    }
+  }
+  for(let i = 0; i <= arr.length; i++) {
+    if(arr[i]) {
+      primes.push(i);
+    }
+  }
+  return primes;
+}
+console.log(prime(num));
+
