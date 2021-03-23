@@ -16,9 +16,9 @@ const checkUsername = () => {
     //value of the username parameter
     const username = usernameEl.value.trim();
 
-    if (!isRequired(username)) {
+    if (isRequired(username)) {
         showError(usernameEl, "Username cannot be blank.");             //function call to showerror
-    } else if (!isBetween(username.length, min, max)) {
+    } else if (isBetween(username.length, min, max)) {
         showError(usernameEl, "Username must be between ${min} and ${max} characters.")
     } else {
         showSuccess(usernameEl);    
@@ -32,9 +32,9 @@ const checkEmail = () => {
     let valid = false;
     //value of email input type
     const email = emailEl.value.trim();
-    if (!isRequired(email)) {
+    if (isRequired(email)) {
         showError(emailEl, 'Email cannot be blank.');
-    } else if (!isEmailValid(email)) {
+    } else if (isEmailValid(email)) {
         showError(emailEl, 'Email is not valid.')
     } else {
         showSuccess(emailEl);
@@ -49,9 +49,9 @@ const checkPassword = () => {
     //password input type value from globally declared query selector variable values
     const password = passwordEl.value.trim();
 
-    if (!isRequired(password)) {
+    if (isRequired(password)) {
         showError(passwordEl, 'Password cannot be blank.');
-    } else if (!isPasswordSecure(password)) {
+    } else if (isPasswordSecure(password)) {
         showError(passwordEl, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
     } else {
         showSuccess(passwordEl);
@@ -67,7 +67,7 @@ const checkConfirmPassword = () => {
     const confirmPassword = confirmPasswordEl.value.trim();
     const password = passwordEl.value.trim();
 
-    if (!isRequired(confirmPassword)) {
+    if (isRequired(confirmPassword)) {
         showError(confirmPasswordEl, 'Please enter the password again');
     } else if (password !== confirmPassword) {
         showError(confirmPasswordEl, 'The password does not match');
@@ -92,9 +92,9 @@ const isPasswordSecure = (password) => {
     return re.test(password);
 };
 //checking for the occurences of a blank character
-const isRequired = value => value === '' ? false : true;
+const isRequired = value => value === '' ? true : false;
 //checks for defined boundaries
-const isBetween = (length, min, max) => length < min || length > max ? false : true;
+const isBetween = (length, min, max) => length < min || length > max ? true : false;
 
 //error display function
 const showError = (input, message) => {
@@ -140,6 +140,6 @@ form.addEventListener('submit', function (e) {
 
     // submit to the server if the form is valid
     if (isFormValid) {
-        console.log("SUCCESFULLY SUBMITTED ");
+        alert("SUCCESFULLY SUBMITTED ");
     }
 });
