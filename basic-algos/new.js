@@ -67,7 +67,7 @@ let string = prompt("Ur string");
 let vowCount = 0,consCount = 0;
 const count = () => {
 	string.toLowerCase().split("").map(iter => iter === 'a' || iter === 'e' || iter === 'i' || iter === 'o' || iter === 'u' ? vowCount++ : consCount++)
-      console.log("Vowels are " + vowCount + " and consanants are " + consCount);
+  console.log("Vowels are " + vowCount + " and consanants are " + consCount);
 }
 console.log(count());
 
@@ -292,6 +292,7 @@ age(23,3,2021,20,1,2000);
 //prime numbers uptill n using seive of eratosthenes
 
 let num = parseInt(prompt("Enter a number"));
+//declaring an array of a counter size
 let arr = new Array(num + 1);
 let primes = new Array();
 const prime = (num) => {
@@ -316,3 +317,43 @@ const prime = (num) => {
 }
 console.log(prime(num));
 
+//fibo series 
+let num = parseInt(prompt("Enter the number"));
+const fibo = (num) => {
+  let a = 0, b = 1;
+  let c;
+  console.log(a);
+  console.log(b);
+  for(let i = 2; i <= num; i++) {
+    c = a + b;
+    console.log(c);
+    a = b;
+    b = c;
+  }
+}
+fibo(num);
+//fibo using recursion
+const fibo = (num) => {
+  return num < 3 ? 1 : (fibo(num - 1) + fibo(num - 2));  
+}
+fibo(num);
+
+//fibo optimized way
+let num = parseInt(prompt("Enter a no"));
+const fibo = (num) => {
+  let arr = [0,1];
+  for(let i = 2; i < num; i++) {
+    arr.push(arr[(i-1)]+arr[(i-2)]);
+  }
+  return arr;
+}
+fibo(num);
+
+//staircase or equilateral triangle pattern printing program
+let num = parseInt(prompt("Enter a no"));
+const staircase = (num) => {
+  for(let i = "#"; i.length <= num; i = i + "#") {
+    console.log(i);
+  }
+}
+staircase(num);
