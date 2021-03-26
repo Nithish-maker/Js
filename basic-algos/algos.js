@@ -55,6 +55,7 @@ let mesg = "";
 for(let i = 1; i < 100; i++) {
   if(i % 2 === 0) {
     mesg+="fizz";
+
   }
   if(i % 3 === 0) {
     mesg+="buzz";
@@ -79,6 +80,7 @@ const getCount = () => {
 	string = string.toLowerCase();
 	for(let ch of string) {
 		if(vowArr.includes(ch)) {
+
 			count++;
 		}
 		else {
@@ -94,6 +96,7 @@ var str = prompt("Enter string");
 let result = {};
 const maximumChar = string => {
   for(let char of str) {
+
     result[char] = result[char] + 1 || 1;
   }
   let maxCount = 0;
@@ -142,6 +145,7 @@ const capitalize = string => {
   return string.split(" ").map((iter) => capitalizeWord(iter)).join(" ")
 }
 
+
 console.log(capitalize(str));
 
 //mean of an array 
@@ -163,11 +167,13 @@ const median = array => {
 	let medOddIndex = Math.round((array.length / 2) - 1);
 	if(array.length % 2 === 0) {
 		med = array[medEvenIndex] + (array[medEvenIndex] - 1);
+
 	}
 	else if(array.length % 2 != 0) {
 		med = array[medOddIndex];
 	}
 	return med;
+
 }
 console.log(median(arr));
 
@@ -195,6 +201,7 @@ const mode = num => {
 }
 console.log(mode(arr));
 
+
 //sum of a range of a num
 
 function getArr(start,end, step) {
@@ -216,10 +223,12 @@ function getArr(start,end, step) {
 }
 function sum(array) {
 	let total = 0;
+
 	for(let num of array) {
 		total+=array[num];
 	}
 	return total;
+
 }
 console.log(sum(getArr(10,2,-2)));
 
@@ -240,6 +249,7 @@ const twoSum = (array,number) => {
 console.log(twoSum(arr,4));
 
 //twoSum efficient method
+
 
 //checking duplicacy of elements in the array
 //converting array to a set and comparing lengths of the set && array
@@ -268,6 +278,8 @@ const twoSum = (array,sum) => {
   else {
      return twoSum(remove(arr));
   }
+
+
 } 
 console.log(twoSum(arr,6));
 
@@ -291,6 +303,7 @@ age(23,3,2021,20,1,2000);
 
 //prime numbers uptill n using seive of eratosthenes
 
+
 let num = parseInt(prompt("Enter a number"));
 //declaring an array of a counter size
 let arr = new Array(num + 1);
@@ -301,6 +314,7 @@ const prime = (num) => {
     arr[1] = false;
     arr[i] = true;
   }
+
   for(let i = 2; i * i <= num; i++) {
     if(arr[i]) {
       for(let j = i * 2; j <= num; j+=i) {
@@ -314,11 +328,13 @@ const prime = (num) => {
     }
   }
   return primes;
+
 }
 console.log(prime(num));
 
 //fibo series 
 let num = parseInt(prompt("Enter the number"));
+
 const fibo = (num) => {
   let a = 0, b = 1;
   let c;
@@ -338,6 +354,7 @@ const fibo = (num) => {
 }
 fibo(num);
 
+
 //fibo optimized way
 let num = parseInt(prompt("Enter a no"));
 const fibo = (num) => {
@@ -346,6 +363,7 @@ const fibo = (num) => {
     arr.push(arr[(i-1)]+arr[(i-2)]);
   }
   return arr;
+
 }
 fibo(num);
 
@@ -357,3 +375,27 @@ const staircase = (num) => {
   }
 }
 staircase(num);
+
+//array to list 
+
+const arr = [1,2,3,4,5];
+const arraytoList = (arr => { 
+	let list = null;
+
+	for(let i = 0; i < arr.length; i++) {
+		list = {value : i , rest : list};
+	}
+	return list;
+}
+console.log(arraytoList(arr));
+
+//list to array 
+const list = {value : 1 , rest : { value : 2, rest : {value : 3, rest : null};
+const listToArray = (list) => {
+	for(let i = list;list;list = list.rest) {
+		newArr.push(list.value);		
+	}
+	return newArr;
+}
+console.log(listToArray(list));
+
