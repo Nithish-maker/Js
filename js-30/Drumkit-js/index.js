@@ -1,7 +1,7 @@
 //adding event listener for the whole window along with the keydown event listener
 // const logValues = (e) => {
 // 	console.log(e.keyCode);
-// }
+//}
 const removeTransition = (e) => {
 	let isClassPresent = (e.propertyName === 'transform') ? true : false;
 	if(isClassPresent) {

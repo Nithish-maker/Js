@@ -18,7 +18,8 @@ body{
 		0 0 4px black,
 		inset 0 0 8px black,
 		inset 0 0 0 5px rgba(0,0,0,0.3);
-	background-color: blue;
+	background:url('src/clock.png');
+	background-size: cover;
 }
 .inner-circle {
 	position: relative;
@@ -26,38 +27,41 @@ body{
 	height:100%;
 }
 .hour-hand{
-		width:33%;
+		/*display:none;*/
+		width:27%;
 		height:6px;
-		background-color: white;
+		background-color: black;
 		position: absolute;
-		top:50%;
-		margin-left: 20%;
-		transform-origin: 95%;
+		top:46%;
+		left:26%;
+		transform-origin:90%;
 		transform: rotate(90deg);
 		transition: all 0.05s;
 		transition-timing-function: cubic-bezier(0.1,2.7,0.58,1);
 	}
 
 	.minute-hand{
-		width:43%;
+		width:35%;
+		/*display: none;*/
 		height:6px;
-		background-color: grey;
+		background-color:black;
 		position: absolute;
-		top:50%;
-		margin-left: 10%;
-		transform-origin: 95%;
+		top:53%;
+		left:18%;
+		transform-origin:90%;
 		transform: rotate(90deg);
 		transition: all 0.05s;
 		transition-timing-function: cubic-bezier(0.1,2.7,0.58,1);
 	}
 
 	.second-hand{
-		width:53%;
+		width:45%;
 		height:6px;
 		background-color: black;
 		position: absolute;
 		top:50%;
-		transform-origin: 95%;
+		left:50%;
+		transform-origin:left;
 		transform: rotate(90deg);
 		transition: all 0.05s;
 		transition-timing-function: cubic-bezier(0.1,2.7,0.58,1);

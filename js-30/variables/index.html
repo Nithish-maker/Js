@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Image editor</title>
+  </head>
+  <body>
+    <div class="layout">
+    	<h2>Using HTML range inputs and basic JS</h2>
+    	<div id="inputs">
+    		<label for="range">Space</label>
+    		<input type="range" name="spacing" id="spacing" min="10" max="100" value="0" data-sizing="px">
+
+    		<label for="range">Blur</label>
+    		<input type="range" name="blur" id="blur" min="0" max="100" value="0" data-sizing="px">
+
+    		<label for="range">Color</label>
+    		<input type="color" name="color" id="color" value="#308DE9" data-sizing="">
+    	</div>
+    	<div class="img">
+    		<!-- "https://media.giphy.com/media/l2JhOWOWwpPSXJBni/giphy.gif" -->
+    		<img src="bg-1.jpg" alt="image" width="500px" height="400px">
+    	</div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
