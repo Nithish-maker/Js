@@ -1,29 +1,34 @@
  
-//for each second getting the time units such as hours seconds and hours with the supported js data and time function
-console.log("js linked properly");
-
-const secondHand = document.querySelector('.second-hand');
-const minuteHand = document.querySelector('.minute-hand');
-const hourHand = document.querySelector('.hour-hand');
-
+console.log("js rendering properly");
+//globally declared hand selectors for this project
+const secondHand = document.querySelector('.secondhand');
+const minuteHand = document.querySelector('.minutehand');
+const hourHand = document.querySelector('.hourhand');
+const audio = document.querySelector('.secondhand audio');
+//for rotating the hand with a respective degree
+function rotateHand(hand,deg) {
+	return hand.style.transform = `rotate(${deg}deg)`;
+}
+//calculation of degrees for every  respective hands
+function calculateDegree(unit,total) {
+	return (((unit / total) * 360) + 90); 
+}
 function setDate(){
 		const now=new Date();
 		const seconds= now.getSeconds();
 		const minutes=now.getMinutes();
 		const hours=now.getHours();
-		const secondsDegrees = (seconds / 60) * 360 + 90;
-		const minutesDegrees = (minutes / 60) * 360 + 90;
-		const hoursDegrees = (hours / 12) * 360 + 90;
-		// console.log(`Seconds degree is ${secondsDegrees}`);
-		// console.log(`Minute degree is ${minutesDegrees}`);
-		// console.log(`Hours degree is ${hoursDegrees}`);
-		secondHand.style.transform=`rotate(${secondsDegrees}deg)`;
-		if(seconds === 0) secondHand.classList.add('fast');
-			//console.log("added");
-		if(seconds === 1) secondHand.classList.remove('fast');
-			//console.log("removed");
-
-		minuteHand.style.transform=`rotate(${minutesDegrees}deg)`;
+		let secondDegrees = calculateDegree(seconds,60);
+		rotateHand(secondHand,secondDegrees);
+		//audio.play();
+		if(seconds === 0) {
+			secondHand.classList.add('fast');
+		}
+		if(seconds === 1) {
+			secondHand.classList.remove('fast');
+		}
+		let minutesDegrees = calculateDegree(minutes,60);
+		rotateHand(minuteHand,minutesDegrees);
 		if(minutes === 0) {
 		 	minuteHand.classList.add('fast');
 		 	//console.log("added");
@@ -33,7 +38,8 @@ function setDate(){
 		 	//console.log("removed");
 		}
 
-		hourHand.style.transform=`rotate(${hoursDegrees}deg)`;
+		let hourDegrees = calculateDegree(hours,12);
+		rotateHand(hourHand,hourDegrees);
 		if(hours === 0) {
 		 	hourHand.classList.add('fast');
 		 	console.log("added");
