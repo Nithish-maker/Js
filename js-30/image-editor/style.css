@@ -7,6 +7,9 @@
  	--spacing:10px;
  	--blur:0px;
  	--color:orange;
+ 	--raduis:10px;
+ 	--width:500px;
+ 	--height:400px;
 }
  body{
  	font-family: 'Oswald', sans-serif;
@@ -35,6 +38,9 @@ img {
 	padding:var(--spacing);
 	background-color:var(--color);
 	filter:blur(var(--blur));
+	border-radius: var(--raduis);
+	width:var(--width);
+	height: var(--height);
 }
 label {
 	color:white;
