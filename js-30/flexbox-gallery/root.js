@@ -8,7 +8,7 @@ const flexGrow = (e) => {
 }
 const textTransition = (e) => {
 	// console.log(e.propertyName);
-	if (e.propertyName.includes('flex')) {
+	if (e.propertyName.includes('transform')) {
         e.classList.add('text-shift');
       }
 }

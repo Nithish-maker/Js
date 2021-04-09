@@ -13,3 +13,20 @@ body {
 	font-size: 45px;
 	letter-spacing: 5px;
 }
+.bars {
+	display: flex;	
+	/*justify-content: center;*/
+	/*align-items: center;*/
+	/*flex-direction: column;*/
+	height:90vh;
+	margin-top: 20px;
+}
+.bar {
+	flex:1;
+	background-color: green;
+	width:5px;
+	/*height:random;*/
+	height:40px;
+	margin-top: 10px;
+} 
+
