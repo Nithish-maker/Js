@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Github repo && link finder</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+  <body>
+   <div class="container">
+   	<header class="header">
+   		<div class="row mt-4">
+   			<div class="col-12 col-sm-12">
+   				<h2 class="text-center">Github {User:Repo} Finder</h2>
+   			</div>
+   		</div>
+   	</header>
+   	<div class="row">
+   		<div class="col-12 col-sm-12 mt-4">
+   			<div class="input-group mb-3">
+   				<input type="text" role="input" placeholder="Enter the user name" class="form-control" id="input">
+   				<button class="input-group-text btn-warning" type="button" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="bottom" title="Example">bradtraversy</button>
+   			</div>
+   		</div>
+   	</div>
+   	<div class="row">
+   		<div class="col-12 col-sm-10 mt-4">
+   			<button type="button" id="get-repo" role="button" class="btn btn-lg btn-primary mr-2">Get repos</button>
+   			<button type="button" id="get-link" role="button" class="btn btn-lg btn-danger mr-2">Get link</button>
+   		</div>
+	</div>
+	<div class="row mt-4" id="list">
+		<div class="d-flex col-12 col-sm-10 justify-content-center"></div>
+	</div>
+   </div>
+   <script type="text/javascript" src="Js/root.js"></script>
+
+  </body>
+</html>
