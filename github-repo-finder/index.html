@@ -6,7 +6,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/js/bootstrap.min.js">
     <link rel="stylesheet" type="text/css" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
@@ -23,7 +22,7 @@
    		<div class="col-12 col-sm-12 mt-4">
    			<div class="input-group mb-3">
    				<input type="text" role="input" placeholder="Enter the user name" class="form-control" id="input">
-   				<button class="input-group-text btn-warning" type="button" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="bottom" title="Example">bradtraversy</button>
+   				<button class="input-group-text btn-warning" type="button" data-bs-toggle="tooltip"  data-bs-placement="bottom" title="Example">bradtraversy</button>
    			</div>
    		</div>
    	</div>
@@ -36,8 +35,15 @@
 	<div class="row mt-4" id="list">
 		<div class="d-flex col-12 col-sm-10 justify-content-center"></div>
 	</div>
-   </div>
-   <script type="text/javascript" src="Js/root.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  </script>
+  <script type="text/javascript" src="Js/root.js"></script>
   </body>
 </html>

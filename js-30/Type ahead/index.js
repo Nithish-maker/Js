@@ -23,7 +23,7 @@ const displayCities = (e) => {
 	const dom = matchedArr.map(place => {
 		let regex = new RegExp(e.target.value,'gi');
 		const cityname = place.city.replace(regex,`<span class="hl">${e.target.value}</span>`);
-		const statename = place.state.replace(regex,`<span class="hl">${e.target.value}</span>`);
+		const statename = place.state.replace(regex,`<span">${e.target.value}</span>`);
 		return `
 		<li>
 			<span class="hl">${cityname}, ${statename}</span>
