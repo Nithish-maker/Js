@@ -35,12 +35,7 @@ const slideInAndOut = (e) => {
 	images.forEach(image => {
 		const slideIn = (window.scrollY + window.innerHeight) - (image.height / 3);
 		const slideOut = image.offsetTop + image.height;
-		if(slideIn > image.offsetTop && window.scrollY < slideOut) {
-			image.classList.add('active');
-		}
-		else {
-			image.classList.remove('active');
-		}
+		slideIn > image.offsetTop && window.scrollY < slideOut ? image.classList.add('active') : image.classList.remove('active');
 	})
 }
 window.addEventListener('scroll',debounce(slideInAndOut,500));

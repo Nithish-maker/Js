@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mouse Shadow</title>
+</head>
+<body>
+
+  <div class="hero">
+    <h1 contenteditable>🔥WOAH!</h1>
+  </div>
+
+  <style>
+  html {
+    color: black;
+    font-family: sans-serif;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
+
+  h1 {
+    text-shadow: 10px 10px 0 rgba(0,0,0,1);
+    font-size: 100px;
+  }
+  </style>
+  <script type="text/javascript">
+    // console.log("jS rendered successfully");
+    const heroContainer = document.querySelector('.hero');
+    const heroChild = document.querySelector('.hero').firstElementChild;
+    const spacing = 200;
+    // console.log(heroContainer,heroChild);
+    const renderShadow = (e) => {
+      const heroHeight = heroContainer.offsetHeight;
+      const heroWidth = heroContainer.offsetWidth;
+      let childX = e.offsetX;
+      let childY = e.offsetY;
+      if(e.currentTarget !== e.target) {
+        childX = childX + e.target.offsetLeft;
+        childY = childY + e.target.offsetTop;
+      }
+      const hRadius = Math.round((childX / heroWidth * spacing) - (spacing / 2));
+      const vRadius = Math.round((childY / heroHeight *spacing) - (spacing / 2));
+      // console.log(hRadius,vRadius);
+      heroChild.style.textShadow = `
+      ${hRadius}px ${vRadius}px 0px rgba(255,0,0,0.7),
+      ${-hRadius}px ${vRadius}px 0px rgba(0,255,255,0.7),
+      ${hRadius}px ${-vRadius}px 0px rgba(255,0,255,0.7),
+      ${-hRadius }px ${-vRadius}px 0px rgba(0,0,255,0.7)
+      `;
+    } 
+    heroContainer.addEventListener('mousemove',renderShadow);
+  </script>
+</body>
