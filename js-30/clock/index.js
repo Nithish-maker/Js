@@ -13,11 +13,11 @@ function rotateHand(hand,deg) {
 function calculateDegree(unit,total) {
 	return (((unit / total) * 360) + 90); 
 }
-function setDate(){
-		const now=new Date();
-		const seconds= now.getSeconds();
-		const minutes=now.getMinutes();
-		const hours=now.getHours();
+function updateClock(){
+		const now = new Date();
+		const seconds = now.getSeconds();
+		const minutes = now.getMinutes();
+		const hours = now.getHours();
 		let secondDegrees = calculateDegree(seconds,60);
 		rotateHand(secondHand,secondDegrees);
 		//audio.play();
@@ -42,11 +42,11 @@ function setDate(){
 		rotateHand(hourHand,hourDegrees);
 		if(hours === 0) {
 		 	hourHand.classList.add('fast');
-		 	console.log("added");
+		 	// console.log("added");
 		}
 		if(hours === 1) {
 		 	hourHand.classList.remove('fast');
-		 	console.log("removed");
+		 	// console.log("removed");
 		}
 	}
-	setInterval(setDate, 1000);
+	setInterval(updateClock, 1000);

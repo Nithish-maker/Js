@@ -39,12 +39,18 @@ function indecProgress() {
 	return currentProgress.style.flexBasis = `${progressPercent}%`;
 }
 
-function updateFrameRateAndVolume() {
-	return video[this.name] = this.value;
+function updateFrameRateAndVolume(e) {
+	if(e.target.name === "volume") {
+		video.volume = e.target.value;
+	}
+	else {
+		video.playbackRate = e.target.value;
+	}
 }
 
 function updateSpeed() {
-	return video.currentTime+= parseFloat(this.dataset.skip);
+	const value = this.dataset.skip;
+	return video.currentTime+= parseFloat(float);
 }
 
 function scrub(e) {
