@@ -18,7 +18,7 @@ body{
 		0 0 4px black,
 		inset 0 0 8px black,
 		inset 0 0 0 5px rgba(0,0,0,0.3);
-	background:url('src/clock.png');
+	background:url('src/sunset01.jpg');
 	background-size: cover;
 }
 .inner-circle {
