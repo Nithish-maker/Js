@@ -15,9 +15,9 @@ keys.map(key => key.addEventListener('transitionend', removeTransition));
 
 const playSound = (e) => {
 	//getting the pressed key element respectively
-	const resKey = document.querySelector(`div[data-key='${e.keyCode}']`);
+	const resKey = document.querySelector(`div[data-key='${e.target.keyCode}']`);
 	//getting respective audio element using attribute selection and adding class play and playing the respective audio ele sound
-	const audio = document.querySelector(`audio[data-key='${e.keyCode}']`);
+	const audio = document.querySelector(`audio[data-key='${e.target.keyCode}']`);
 	if(audio === null) {
 		alert('Press a valid key from [asdfghjkl]');
 	}
