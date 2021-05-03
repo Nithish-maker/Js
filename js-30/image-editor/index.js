@@ -6,10 +6,12 @@ function handleUpdate(e) {
 	// //console.log(das.sizing);
 	//getting the root element and setting the property
 	const root = document.documentElement;
-	if(!(e.target.name === "spacing" || e.target.name === "blur")) {
+	if(e.target.name === "spacing" || e.target.name === "blur" || e.target.name === "brightness" || e.target.name === "saturate" || e.target.name === "invert") {
+		root.style.setProperty(`--${e.target.name}`,`${e.target.value}` + das);
+	}
+	else {
 		root.style.setProperty(`--${e.target.name}`,`${e.target.value}`);
 	}
-	root.style.setProperty(`--${e.target.name}`,`${e.target.value}` + das);
 }
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
 inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));

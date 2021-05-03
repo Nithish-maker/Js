@@ -6,6 +6,9 @@
  :root {
  	--spacing:10px;
  	--blur:0px;
+ 	--brightness:100%;
+ 	--saturate:0%;
+ 	--invert:0%;
  	--color:orange;
  	--raduis:10px;
  	--width:500px;
@@ -37,7 +40,7 @@
 img {
 	padding:var(--spacing);
 	background-color:var(--color);
-	filter:blur(var(--blur));
+	filter:blur(var(--blur)) brightness(var(--brightness)) saturate(var(--saturate)) invert(var(--invert));
 	border-radius: var(--raduis);
 	width:var(--width);
 	height: var(--height);
