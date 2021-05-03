@@ -50,7 +50,7 @@ function updateFrameRateAndVolume(e) {
 
 function updateSpeed() {
 	const value = this.dataset.skip;
-	return video.currentTime+= parseFloat(float);
+	return video.currentTime+= parseFloat(value);
 }
 
 function scrub(e) {

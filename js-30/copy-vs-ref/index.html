@@ -5,6 +5,7 @@
     <title>Copy vs Reference</title>
   </head>
   <body>
+  	<p>Looking at the console</p>
   	<script type="text/javascript">
   	// TODO		
   	/* *
@@ -69,33 +70,33 @@
 	/* Arrays and objects  */
 	// Arrays
 
-	const likes = ['233','455','33'];
-	const personLikes = likes;
+	let likes = ['233','455','33'];
+	let personLikes = likes;
 	personLikes[0] = '344';
 	// console.table(likes);
 	// console.table(personLikes);
 
+	// let likes = ['233','455','33'];
+	let newPersonLikes = [].concat(likes);
 	/* Ways to fix the above issue 
 	1.(using newArray and concatenating the older array) */
-	const likes = ['233','455','33'];
-	const personLikes = [].concat(likes);
-	personLikes[0] = '344';
+	newPersonLikes[0] = '344';
 	console.table(likes);
-	console.table(personLikes);
+	console.table(newPersonLikes);
 
 	/* 2. Using spread operator */
-	const likes = ['233','455','33'];
-	const personLikes = [...likes];
+	// let likes = ['233','455','33'];
+	personLikes = [...likes];
 	personLikes[0] = '344';
 	console.table(likes);
 	console.table(personLikes);
 
 	// Objects
-	const person = {
+	let person = {
     	name: 'Wes Bos',
     	age: 80
 	};
-	const newPerson = person;
+	let newPerson = person;
 	person['name'] = "nithish";
 	console.table(person);
 	console.table(newPerson);
@@ -103,31 +104,31 @@
 	/* Fixing the issue */
 	// 1. Using the object assign method
 
-	const person = {
-      name: 'Wes Bos',
-      age: 80
-	};
-	const newPerson = Object.assign({},person,{name : "nithish", age : 20});
+	// let person = {
+ //      name: 'Wes Bos',
+ //      age: 80
+	// };
+	// let newPerson = Object.assign({},person,{name : "nithish", age : 20});
 	newPerson['name'] = "nithish";
 	console.table(person);
 	console.table(newPerson);
 
-	// 2. Using spread operator 
-	const person = {
-      name: 'Wes Bos',
-      age: 80
-	};
-	const newPerson = {...person};
+	// // 2. Using spread operator 
+	// let person = {
+ //      name: 'Wes Bos',
+ //      age: 80
+	// };
+	newPerson = {...person};
 	newPerson['name'] = "nithish";
 	console.table(person);
 	console.table(newPerson);
 
 	// 3. Using JSON Stringify to convert the older obj to an stringified objects and finally pasring it as a JSON object as a new Object
-	const person = {
-      name: 'Wes Bos',
-      age: 80
-	};
-	const newPerson = JSON.parse(JSON.stringify(person));
+	// let person = {
+ //      name: 'Wes Bos',
+ //      age: 80
+	// };
+	newPerson = JSON.parse(JSON.stringify(person));
 	newPerson['name'] = "nithish";
 	console.table(person);
 	console.table(newPerson);	

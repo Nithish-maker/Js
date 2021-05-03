@@ -30,12 +30,19 @@ function debounce(func, wait = 20, immediate = true) {
     };
 
 const images = document.querySelectorAll('.slide-in');
-const slideInAndOut = (e) => {
+function slideInAndOut(){
 	// console.count(e)
 	images.forEach(image => {
-		const slideIn = (window.scrollY + window.innerHeight) - (image.height / 3);
+		const slideIn = (window.scrollY + window.innerHeight) - (image.height / 2);
 		const slideOut = image.offsetTop + image.height;
-		slideIn > image.offsetTop && window.scrollY < slideOut ? image.classList.add('active') : image.classList.remove('active');
+		const isHalfShown = slideIn > image.offsetTop;
+    const isNotScrolledPast = window.scrollY < slideOut;
+    if(isHalfShown && isNotScrolledPast) {
+      image.classList.add('active');
+    }
+    else {
+      image.classList.remove('active');
+    }
 	})
 }
-window.addEventListener('scroll',debounce(slideInAndOut,500));
+window.addEventListener('scroll',debounce(slideInAndOut));
